@@ -18,7 +18,7 @@ if "caesarcipher" not in sys.modules or "xorencryption" not in sys.modules  :
         os.system('pip install xorencryption')
     else:
         print('pip install caesarcipher \npip install xorencryption')
-        exit()
+        #exit()
 ######################################################
 from caesarcipher import CaesarCipher
 from xorencryption import XOREncryption
@@ -91,17 +91,20 @@ def run_caesarcipher():
             run_caesarcipher()
         opt = str(input('[+]Encode(en)/Decode(de)?: '))
         x = input('[+]Enter your offset: ')
-        if  opt.lower() == 'en' or opt.lower() == 'encode' and x == ''  :
-            print('Offest is NULL... \nDefault offset is 2')
+        if  opt.lower() == 'en' or opt.lower() == 'encode'   :
+            if x == '' :
+                print('Offest is NULL... \nDefault offset is 2')
+                string_encode(string)
             string_encode(string,int(x))
-        elif opt == '' or opt.lower() != 'en' or opt.lower() != 'encode'  :
-            print('[+]Please enter a valid options!')
-            run_caesarcipher()
         elif opt.lower() == 'de' or opt.lower() == 'decode':
             if x == '':
                 print('[+]Trying With random offset...')
                 dk_index_decode(string)
-            string_decode(string)
+            string_decode(string,int(x))
+        #elif opt == '' or opt.lower() != 'en' or opt.lower() != 'encode'  :
+        else:
+            print('[+]Please enter a valid options!')
+            run_caesarcipher()
         again = str(input('[+]Try Again?(N/y)'))
 ######################################################
 def run():
@@ -117,6 +120,6 @@ def run():
 ######################################################
 run()
 print('Bye...')
-time.sleep(1.5)
+time.sleep(1)
 exit()
 ######################################################
