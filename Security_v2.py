@@ -100,7 +100,7 @@ def run_caesarcipher():
             if x == '':
                 print('[+]Trying With random offset...')
                 dk_index_decode(string)
-            string_decode(string,int(x))
+            else : string_decode(string,int(x))
         #elif opt == '' or opt.lower() != 'en' or opt.lower() != 'encode'  :
         else:
             print('[+]Please enter a valid options!')
